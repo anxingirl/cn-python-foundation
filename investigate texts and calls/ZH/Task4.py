@@ -25,4 +25,26 @@ with open('calls.csv', 'r') as f:
 <list of numbers>
 电话号码不能重复，每行打印一条，按字典顺序排序后输出。
 """
+#获得所有的打出电话的号码set1
+#获得所有接受电话的号码set2
+#获得所有发送短信接受短信的电话号码set3
+#set1 - set2 - set3
+set1 = set()
+set2 = set()
+set3 = set()
+for call in calls:
+    set1.add(call[0])
+    set2.add(call[1])
+
+for text in texts:
+    set3.add(text[0])
+    set3.add(text[1])
+
+telemarketers = sorted(set1 - set2 - set3)
+print("These numbers could be telemarketers: ")
+for tele in telemarketers:
+    print(tele)
+
+
+
 

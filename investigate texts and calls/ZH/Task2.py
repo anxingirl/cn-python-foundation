@@ -22,4 +22,16 @@ September 2016.".
 如果键已经存在于字典内，为键所对应的值加上对应数值；
 如果键不存在于字典内，将此键加入字典，并将它的值设为给定值。
 """
+call_duration = {};
+for call in calls:
+    if call_duration.get(call[0]) == None:
+        call_duration[call[0]] = int(call[3])
+    else:
+        call_duration[call[0]] += int(call[3])
+    if call_duration.get(call[1]) == None:
+        call_duration[call[1]] = int(call[3])
+    else:
+        call_duration[call[1]] += int(call[3])
 
+call_duration_sorted = sorted(call_duration.items(), key=lambda d:d[1], reverse=True )
+print( '{} spent the longest time,{} seconds, on the phone during September 2016.'.format(str(call_duration_sorted[0][0]),str(call_duration_sorted[0][1])))
