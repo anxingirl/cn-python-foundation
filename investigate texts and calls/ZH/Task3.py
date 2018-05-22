@@ -64,9 +64,10 @@ for call in calls:
         else:
             called_dict[phone_code] += 1
 print ("The numbers called by people in Bangalore have codes:")
+called_sorted_list = sorted(called_dict)
 total_num = 0
-for called,value in called_dict.items():
+for called in called_sorted_list:
     print(called)
-    total_num += value
+    total_num += called_dict[called]
 
 print ( "{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(round(called_dict.get("080") / total_num *100, 2)))
