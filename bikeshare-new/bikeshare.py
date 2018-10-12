@@ -30,7 +30,7 @@ def get_filters():
     days = ['All','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
     day = ""
     while(day not in days):
-        day = input("Pls input the week day you want to explore. Choose from 'all','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday':\n").title()
+        day = input("Pls input the week day you want to explore. Choose from 'All','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday':\n").title()
     print('-'*40)
     return city, month, day
     
@@ -55,7 +55,7 @@ def load_data(city, month, day):
         df = df[df['month'] == months.index(month)+1]
     print(df.iloc[1])
     print(day)
-    if(day != 'all'):
+    if(day != 'All'):
         df = df[df['weekday'] == day]  
     print(df.iloc[1])
     return df
